@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* COMPONENT_CSS_START */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-focus-ring-color: transparent;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      t1 {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      t2 {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      t3 {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      t4 {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      t5 {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      t6 {
+        font-family: "Figtree", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      filled-button {
+        display: inline-block;
+        background-color: #000000;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 12px 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+      }
+      outlined-button {
+        display: inline-block;
+        background-color: transparent;
+        color: #000000;
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 12px 16px;
+        border: 1px solid #000000;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+      }
+      text-button {
+        display: inline-block;
+        background-color: transparent;
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 12px 16px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+      }
+      t1,
+      t2,
+      t3,
+      t4,
+      t5,
+      t6,
+      filled-button,
+      outlined-button,
+      text-button {
+        outline: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      t1:focus,
+      t2:focus,
+      t3:focus,
+      t4:focus,
+      t5:focus,
+      t6:focus,
+      filled-button:focus,
+      outlined-button:focus,
+      text-button:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      /* COMPONENT_CSS_END */
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Helvetica;
+      }
+      h1 {
+        margin: 10px 0px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+      }
+      .swiper-wrapper {
+        background-color: aquamarine !important;
+      }
+      .swiper-slide {
+        width: 220px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lyvecom">
+      <div id="lyvecom_marketplace--page"></div>
+    </div>
+    <script src="https://developer.vajro.com/vajro-sdk.js"></script>
+    <script>
+      // JS
+      function injectLyveComWidgetScript() {
+        var scriptElement = document.createElement("script");
+        scriptElement.src = "https://dashboard.lyvecom.com/widget/widget.js";
+        // Call LyveComWidget mount when the script is loaded
+        scriptElement.onload = function () {
+          LyveComWidget.mountMarketPlacePage({
+            account: "6797f585703336da85089225",
+            parentElement: "#lyvecom_marketplace--page",
+            lng: "en",
+          });
+        };
+        window.document.addEventListener("FullLyveComOpen", () => {
+          document.getElementById("lyvecom").style.height = `calc(${
+            VajroSDK.variables.device.windowHeight || 750
+          }px - 80px)`;
+        });
+        window.document.addEventListener("FullLyveComClosed", () => {
+          document.getElementById("lyvecom").style.height = "auto";
+        });
+        document.head.appendChild(scriptElement);
+        var scriptElement = document.createElement("style");
+      }
+      // Call the function to inject the script
+      injectLyveComWidgetScript();
+    </script>
+  </body>
+</html>
